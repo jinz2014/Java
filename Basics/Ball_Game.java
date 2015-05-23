@@ -1,5 +1,9 @@
 import java.awt.Color;
 
+/*
+ * A example to show static variables
+ */
+
 class Ball {
   private static int ball_count = 0;
   private static int red_ball_count = 0;
