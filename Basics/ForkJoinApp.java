@@ -1,13 +1,13 @@
 import java.util.concurrent.*;
 
 /* 
-   Compare two parallel sum operations using Fork/Join with
-   the serial implementation.
+   The serial and parallel implementations of 
+   sum of squares operations 
 
-   intel-i3 four-core
-   The serial implementation takes shortest time when N is 10,000,000
-   The third implementation takes shortest time when N is 100,000,000
-   The second implementation always takes longest time 
+   my laptop: intel-i3 four-core
+   The serial takes shortest time when N is 10,000,000
+   The parallel b takes shortest time when N is 100,000,000
+   The parallel a always takes longest time 
  */
 
 public class ForkJoinApp {
@@ -24,6 +24,7 @@ public class ForkJoinApp {
       array[i] = (int)(Math.random() * 100);
     }
 
+    // serial
     long sum = 0;
     long start = System.nanoTime();
     for (int i = 0; i < N; i++) {
@@ -32,6 +33,7 @@ public class ForkJoinApp {
     long elap = System.nanoTime() - start;
     System.out.println("Serial:     Elapsed time is " + elap);
 
+    // parallel a
     start = System.nanoTime();
     long sump = Sum.sumArray(array);
     elap = System.nanoTime() - start;
@@ -42,6 +44,7 @@ public class ForkJoinApp {
     else
       System.out.println("parallel sum finished successfully");
 
+    // parallel b
     start = System.nanoTime();
     sump = Applyer.sumOfSquares(array);
     elap = System.nanoTime() - start;
@@ -51,6 +54,7 @@ public class ForkJoinApp {
       System.out.println("[Error] parallel sum != serial sum");
     else
       System.out.println("parallel sum finished successfully");
+
   }
 }
 
