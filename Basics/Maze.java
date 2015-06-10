@@ -26,6 +26,8 @@ public class Maze {
   }
 
   public void printPath() {
+    // Constructs a list containing the elements of the specified collection, 
+    // in the order they are returned by the collection's iterator.
     List<Position> list = new ArrayList<Position>(path);
     for (Position p : list) {
       System.out.print(p);
