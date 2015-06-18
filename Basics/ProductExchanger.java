@@ -93,16 +93,3 @@ class Consumer implements Runnable {
 }
 
 
-class Consumer implements Runnable {
-  private List<Integer> buffer =  new ArrayList<>();
-  private boolean ok = true;
-          Thread.sleep((int)(Math.random()*1000));
-          buffer.clear();
-        } catch (InterruptedException e) {
-          ok = false;
-        }
-      }
-    }
-  }
-}
-
