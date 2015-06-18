@@ -2,8 +2,10 @@ import java.util.*;
 
 /**
   * A slightly modifed example of HashMap with Object as the key
-  *
+  * We must override the HashCode and equals methods to make the
+  * Object key comparable
   */
+
 public class TestObjectKeyHashMap {
  
   public static void main(String a[]){
@@ -18,9 +20,9 @@ public class TestObjectKeyHashMap {
      
   public static void printMap(Map<Price, String> map){
        
-    Set<Price> keys = map.keySet();
-    for(Price p : keys){
-      System.out.println(p + " ==> " + map.get(p));
+    //Set<Price> keys = map.keySet();
+    for(Price p : map.keySet()){
+      System.out.println(p);
     }
 
     // returns null as the key is not in the HashMap
@@ -33,9 +35,9 @@ class Price{
     private String item;
     private int price;
      
-    public Price(String itm, int pr){
-        this.item = itm;
-        this.price = pr;
+    public Price(String item, int price){
+        this.item = item;
+        this.price = price;
     }
      
     public int hashCode(){
@@ -70,7 +72,7 @@ class Price{
         this.price = price;
     }
      
-    public String toString(){
+    public String toString() {
         return "item: "+item+"  price: "+price;
     }
 }
