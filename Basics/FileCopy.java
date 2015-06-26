@@ -1,9 +1,17 @@
 /**
   * Copy file using "byte stream" read/write
   *
-  *  The function read(byte[] b)  reads the number of bytes equal to the
-  *  length of the byte array. 
-  *  Return the actual number of read bytes
+  * read
+  * The function read(byte[] b)  reads the number of bytes equal to the
+  * length of the byte array. 
+  * Return the actual number of read bytes
+  *
+  * void write (byte[] b, int off, int len) throws IOException
+  * Writes len bytes from the specified byte array starting at offset off 
+  * to this output stream. The general contract for write(b, off, len)
+  * is that some of the bytes in the array b are written to the output stream in order;
+  * element b[off] is the first byte written and 
+  * b[off+len-1] is the last byte written by this operation. 
   *
   *  Java SE7 and above
   */
