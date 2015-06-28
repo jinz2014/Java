@@ -17,14 +17,22 @@ public class TypeWrapper {
     System.out.println("n1 holds value " + n1.intValue());
     System.out.println("n2 holds value " + n2.intValue());
 
-    System.out.println("n1.equals(n2) = (true/false) " + n1.equals(n2));
-    System.out.println("n1.compareTo(n2) = -1/1 " + n1.compareTo(n2));
-    System.out.println("n2.compareTo(n1) = -1/1 " + n2.compareTo(n1));
+    // false
+    System.out.println("n1.equals(n2) = " + n1.equals(n2));
+    // -1 (5 < 10)
+    System.out.println("n1.compareTo(n2) = " + n1.compareTo(n2));
+    // 1 (10 > 5)
+    System.out.println("n2.compareTo(n1) = " + n2.compareTo(n1));
+
+    n2 = new Integer("5");
+    // true
+    System.out.println("n1.equals(n2) = " + n1.equals(n2));
+    // 0
+    System.out.println("n1.compareTo(n2) = " + n1.compareTo(n2));
+    System.out.println("n2.compareTo(n1) = " + n2.compareTo(n1));
+
     System.out.println(Integer.parseInt("245"));
     System.out.println(Integer.parseInt("FF", 16)); // hex
     System.out.println(Integer.parseInt("Jim", 27)); // hex
-
-    n1 = new Integer(10);
-    System.out.println("n1 holds value " + n1.intValue());
   }
 }
