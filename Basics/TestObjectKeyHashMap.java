@@ -9,33 +9,34 @@ import java.util.*;
 public class TestObjectKeyHashMap {
  
   public static void main(String a[]){
-    Map<Price, String> hm = new HashMap<Price, String>();
-    hm.put(new Price("Banana", 20), "Banana");
-    hm.put(new Price("Apple", 40), "Apple");
-    hm.put(new Price("Orange", 30), "Orange");
+    Map<Sale, String> hm = new HashMap<>();
+    hm.put(new Sale("Banana", 20), "Mexico");
+    hm.put(new Sale("Apple", 40),  "New York");
+    hm.put(new Sale("Orange", 30), "Florida");
     printMap(hm);
-    Price key = new Price("Banana", 20);
+    Sale key = new Sale("Banana", 20);
     System.out.println("Does Banana available? "+hm.containsKey(key));
   }
      
-  public static void printMap(Map<Price, String> map){
+  public static void printMap(Map<Sale, String> map){
        
-    //Set<Price> keys = map.keySet();
-    for(Price p : map.keySet()){
+    //Set<Sale> keys = map.keySet();
+    for(Sale p : map.keySet()){
       System.out.println(p);
     }
 
+
     // returns null as the key is not in the HashMap
-    System.out.println(map.get(new Price("Pearl", 20)));
+    System.out.println(map.get(new Sale("Pearl", 20)));
   }
 }
  
-class Price{
+class Sale{
      
     private String item;
     private int price;
      
-    public Price(String item, int price){
+    public Sale(String item, int price){
         this.item = item;
         this.price = price;
     }
@@ -47,16 +48,15 @@ class Price{
         return hash;
     }
      
-    public boolean equals(Object obj){
+    public boolean equals(Object obj) {
         System.out.println("In equals");
         if (this == obj)
           return false;
-        if (obj instanceof Price) {
-            Price p = (Price) obj;
-            return (item.equals(p.item) && p.price == price);
-        } else {
-            return false;
+        if (obj instanceof Sale) {
+          Sale p = (Sale) obj;
+          return (item.equals(p.item) && p.price == price);
         }
+        return false;
     }
      
     public String getItem() {
