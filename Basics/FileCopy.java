@@ -27,12 +27,13 @@ public class FileCopy {
     }
     int numRead = 0;
     byte[] buffer = new byte[512];
+    int offset = 0;
 
     // InputStream is a superclass of FileInputStream
     try (InputStream reader = new FileInputStream(args[0]);
          OutputStream writer = new FileOutputStream(args[1])) {
       while ( (numRead = reader.read(buffer)) != -1) {
-        writer.write(buffer, 0, numRead);
+        writer.write(buffer, offset, numRead);
       }
     } 
     catch (FileNotFoundException e) {
@@ -41,7 +42,7 @@ public class FileCopy {
       System.exit(0);
     }
     catch (IOException e) {
-      System.out.print("Error reading/writing file");
+      e.printStackTrace();
     }
   }
 }
