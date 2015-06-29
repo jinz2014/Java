@@ -1,5 +1,5 @@
 /**
-  * Calculate the length of a file in the number of bytes
+  * Calculate file length in the number of bytes
   *
   * Java SE7 and above
   */
@@ -10,7 +10,7 @@ public class FileLength {
 
   public static void main(String[] args) {
     if (args.length < 1) {
-      System.out.println("Usage java FileLength <filename>");
+      System.out.println("Usage: java FileLength <filename>");
       System.exit(0);
     }
     int count = 0;
@@ -26,7 +26,7 @@ public class FileLength {
       System.exit(0);
     }
     catch (IOException e) {
-      System.out.print("Error reading file");
+      e.printStackTrace();
     }
   }
 }
