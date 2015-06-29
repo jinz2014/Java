@@ -1,12 +1,15 @@
 import java.util.concurrent.*;
 
 /*
-   Semaphore 
+   Semaphore to simulate 10 customers who go to Bank's ATM
+   ATM teller is a critical resource bounded by semaphore
  */
 public class Bank {
   private final static int COUNT = 10;
   private final static Semaphore lock = 
-    new Semaphore(2, true);  // true: fifo order
+    new Semaphore(2, true);  
+  // there are 2 permits (2 ATM tellers), and granting of permits is 
+  // in fifo order under contention
 
   public static void main(String[] args) {
     for (int i = 0; i < COUNT; i++) {
