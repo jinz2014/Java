@@ -4,7 +4,7 @@ public class SwapTest {
 
   // Generic method
   public static <T> void swap(List<T> list, int fromIndex, int toIndex) {
-    // return the value of list element to be overwritten
+    // list.set() returns the value of list element to be overwritten
     T t = list.set(fromIndex, list.get(toIndex));
     list.set(toIndex, t);
   }
